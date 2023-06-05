@@ -52,11 +52,40 @@ If the control input changes to AB = 10, then all the gates are restricted excep
 
 
 ### PROGRAM 
-/*
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: Goukl J
+RegisterNumber: 212222230038
+```
+### Multiplexer
+```
+module multi (s0,s1,a0,a1,a2,a3,y);
+input s0,s1,a0,a1,a2,a3;
+output y;
+wire a,b,c,d,s0bar,s1bar;
+not (s0bar,s0);
+not (s1bar,s1);
+and (a,s0,s1,a3);
+and (b,s0bar,s1,a2);
+and (c,s0,s1bar,a1);
+and (d,s0bar,s1bar,a0);
+or (y,a,b,c,d);
+endmodule
+```
+### De-multiplexer
+```
+module demul(y0,y1,y2,y3,s0,s1,i);
+input s0,s1,i;
+output y0,y1,y2,y3;
+wire sbar,s1bar;
+nor(sbar,s0);
+nor(s1bar,s1);
+and(y0,i,sbar,s1);
+and(y1,i,sbar,s1bar);
+and(y2,i,s0,s1bar);
+and(y3,i,s0,s1);
+endmodule
+```
 
 
 
@@ -64,25 +93,35 @@ RegisterNumber:
 
 
 ### RTL LOGIC  
+### Multiplexer
+![Screenshot 2023-06-05 130452](https://github.com/Gokul0117/Exercise-07-Multiplexer-and-De-multiplexer/assets/121165938/0ab0954b-5e74-47ab-8f06-031d8c4ea0ce)
 
 
 
-
-
+### De-multiplexer
+![Screenshot 2023-06-05 130556](https://github.com/Gokul0117/Exercise-07-Multiplexer-and-De-multiplexer/assets/121165938/1a279004-7ab9-4b6d-a7b1-15e54e83fd49)
 
 
 
 ### TIMING DIGRAMS  
+### Multiplexer
+![Screenshot 2023-06-05 131325](https://github.com/Gokul0117/Exercise-07-Multiplexer-and-De-multiplexer/assets/121165938/91e9a9fc-d126-43de-b8b2-186f496560bc)
 
+
+### De-multiplexer
+![Screenshot 2023-06-05 131341](https://github.com/Gokul0117/Exercise-07-Multiplexer-and-De-multiplexer/assets/121165938/c6d7f4ce-e132-4ef0-8115-77450e0c94c2)
 
 
 
 
 ### TRUTH TABLE 
+### Multiplexer
+![Screenshot 2023-06-05 131000](https://github.com/Gokul0117/Exercise-07-Multiplexer-and-De-multiplexer/assets/121165938/9007f00f-8500-45f8-a8bf-7a5cc3abd47c)
 
-
-
+### De-multiplexer
+![Screenshot 2023-06-05 131050](https://github.com/Gokul0117/Exercise-07-Multiplexer-and-De-multiplexer/assets/121165938/abfa49b4-25ea-4126-9624-828e52d636c5)
 
 
 
 ### RESULTS 
+Thus the program to design multiplexer and de-multiplexer is successfully completed.
